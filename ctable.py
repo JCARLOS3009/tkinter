@@ -16,3 +16,22 @@ cur.execute("""select * from public."AGENDA" where "id"=1""")
 registro=cur.fetchone() 
 print(registro) 8 conn.commit() 9 print("Seleção realizada com sucesso!"); 
 conn.close()
+#Atualização de um único registro 
+cur.execute("""Update public."AGENDA" set "telefone"='02188888888' where "id"=1""") 
+conn.commit() 
+print("Registro Atualizado com sucesso! ")
+cur = conn.cursor()
+print(" Consulta depois da atualização") 
+cur.execute("""select * from public."AGENDA" where "id"=1""") 
+registro=cur.fetchone() 
+print(registro) 
+conn.commit() 
+print("Seleção realizada com sucesso!");
+conn.close()
+#Exclusão de u registro
+cur.execute("""Delete from public."AGENDA" where "id"=1""") 
+conn.commit() 
+cont=cur.rowcount 
+print(cont, "Registro excluído com sucesso!") 
+print("Exclusão realizada com sucesso!"); 
+conn.close()
